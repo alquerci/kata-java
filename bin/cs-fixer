@@ -1,0 +1,10 @@
+#! /bin/sh -eu
+
+files=`find ./src ./tests -type f -name '*.java'`
+
+docker-compose build > /dev/null
+docker-compose run --rm -u `id -u`:`id -g` app google-java-format \
+    --replace \
+    --aosp \
+    $files
+docker-compose down
