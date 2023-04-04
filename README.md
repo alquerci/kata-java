@@ -12,7 +12,7 @@ Tests
 bin/test
 ```
 
-Code Coverage report [target/site/jacoco/index.html][]
+Code Coverage report [target/site/jacoco/index.html](target/site/jacoco/index.html)
 
 
 Format code
@@ -30,4 +30,4 @@ Mutation Testing
 bin/test-mutation
 ```
 
-Mutation test report [target/pit-reports/index.html][]
+Mutation test report [target/pit-reports/index.html](target/pit-reports/index.html)
