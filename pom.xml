@@ -169,6 +169,9 @@
           <targetTests>
             <param>${project.artifactId}.*</param>
           </targetTests>
+          <mutators>
+            <group>ALL</group>
+          </mutators>
         </configuration>
         <dependencies>
           <dependency>
