@@ -57,8 +57,12 @@ configureClassName ()
     sed -i "s/${defaultclassname}/${classname}/" \
         "${testsdir}/${defaultclassname}Test.${codefileext}"
 
-    mv "${testsdir}/${defaultclassname}Test.${codefileext}" \
-       "${testsdir}/${classname}Test.${codefileext}"
+    mkdir -p "${testsdir}/${pkgname}"
+    git mv "${testsdir}/${defaultclassname}Test.${codefileext}" \
+       "${testsdir}/${pkgname}/${classname}Test.${codefileext}"
+
+    mkdir -p "${srcdir}/${pkgname}"
+    git mv "${srcdir}/.gitkeep" "${srcdir}/${pkgname}"
 }
 
 removeSkeletonArtefact ()
@@ -70,9 +74,8 @@ commit ()
 {
     git add \
         "${pkgdir}/pom.xml" \
-        "${testsdir}/${classname}Test.${codefileext}"
-
-    git rm --cached "${testsdir}/${defaultclassname}Test.${codefileext}"
+        "${srcdir}" \
+        "${testsdir}"
 
     git commit -pm"Add ${pkgname}"
 }
